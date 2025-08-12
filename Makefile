@@ -15,6 +15,9 @@ bump:
 package: console.elf
 	./scripts/package.sh
 
+push: package
+	ssh hartbuch 'tar -xvzf - -C src/why2025/firmware' < console.pkg.tgz
+
 publish: console.elf
 	./scripts/publish.sh
 
