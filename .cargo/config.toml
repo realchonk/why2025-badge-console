@@ -1,0 +1,11 @@
+[build]
+target = "riscv32imafc-unknown-none-elf"
+
+[unstable]
+build-std = ["core", "alloc", "compiler_builtins"]
+
+[target.riscv32imafc-unknown-none-elf]
+rustflags = [
+	"-Crelocation-model=pic",
+	"-Clinker=ld.lld-19",
+]
