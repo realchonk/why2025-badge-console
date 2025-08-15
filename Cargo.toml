@@ -1,14 +1,24 @@
 [package]
 name = "console"
-version = "0.0.1"
+version = "0.0.3"
 edition = "2024"
 authors = ["chonk"]
 
+[profile.dev]
+panic = "abort"
+lto = "thin"
+
+[profile.release]
+panic = "abort"
+lto = "fat"
+
 [dependencies]
-why2025-badge-sys = "0.2.0"
+embedded-graphics = "0.8.1"
+ibm437 = "0.3.3"
+mousefood = { git = "https://github.com/j-g00da/mousefood", default-features = false, features = ["fonts"] }
+ratatui = { version = "0.30.0-alpha.5", default-features = false }
+why2025-badge-embedded-graphics = { git = "https://github.com/realchonk/why2025-badge-rust" }
+why2025-badge = { git = "https://github.com/realchonk/why2025-badge-rust" }
 
 [build-dependencies]
-cargo-util-schemas = "0.9.0"
-serde = { version = "1.0.219", features = ["derive"] }
-serde_json = "1.0.142"
-toml = { version = "0.9.5", features = ["serde", "parse"] }
+why2025-badge-metadata = { git = "https://github.com/realchonk/why2025-badge-rust" }
